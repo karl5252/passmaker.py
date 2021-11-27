@@ -2,7 +2,7 @@ import random
 
 import string
 
-from dictionary_loader import dict_loader
+from dictionary_loader import DictLoader
 
 
 # def cleanup(word):
@@ -18,7 +18,7 @@ from dictionary_loader import dict_loader
 if __name__ == '__main__':
     number = random.randrange(0, 100)
     special_char = random.choice(string.punctuation)
-    dicter = dict_loader()
+    dicter = DictLoader()
     dicter.create_dictionary_file('a')
     dicter.create_dictionary_file('n')
 
