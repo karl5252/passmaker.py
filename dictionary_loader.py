@@ -1,8 +1,6 @@
 import os
 from nltk.corpus import wordnet
 import random
-from random import choice
-import string
 from os.path import exists
 
 
@@ -15,7 +13,6 @@ class DictLoader:
     def check_if_file_exists(self, filename):
         """:param filename: name of the searched file
         :return TRUE or FALSE if file is not found"""
-        print(self.ROOT_DIR)
         path_to_file = f"{self.ROOT_DIR}/dict_{filename}.txt"
         file_exists = exists(path_to_file)
         return file_exists
@@ -50,10 +47,9 @@ class DictLoader:
 
     def load_dict_file(self, filename, type_of_dict):
         if type_of_dict == 'a':
-            temp_word = random.choice(open(f"dict_{filename}.txt", "r").readline().split(","))
+            temp_word = random.choice(open(f"{self.ROOT_DIR}/dict_{filename}.txt", "r").readline().split(","))
         elif type_of_dict == 'n':
-            temp_word = random.choice(open(f"dict_{filename}.txt", "r").readline().split(","))
+            temp_word = random.choice(open(f"{self.ROOT_DIR}/dict_{filename}.txt", "r").readline().split(","))
         else:
             raise Exception(f"{type_of_dict} is not valid parameter. accepted parms are 'a' (adjective) or 'n' (noun) ")
-        print(temp_word)
         return temp_word.strip()
